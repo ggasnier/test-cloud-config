@@ -9,5 +9,4 @@ spring:
       ddl-auto: create
   eureka:
     instance:
-      # enable to register multiple app instances with a random server port
       instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
