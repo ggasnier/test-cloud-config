@@ -5,9 +5,14 @@ server:
     mime-types: application/json,text/css,application/javascript
     min-response-size: 2048
 
-zuul:
-  prefix: /api
-  ignoredServices: '*'
-  routes:
-    customers-service: /customers/**
-    api-gateway: /gateway/**
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customers-service
+          uri: lb://customers-service
+          predicates:
+            - Path=/api/customers/**
+          filters:
+            - StripPrefix=2
+   
