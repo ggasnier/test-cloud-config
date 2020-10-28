@@ -9,4 +9,4 @@ spring:
       ddl-auto: create
   eureka:
     instance:
-      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
